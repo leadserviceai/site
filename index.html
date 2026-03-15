@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceLeads.AI — 10 Booked Jobs in 30 Days</title>
+  <meta name="description" content="We help local service businesses get 10 booked appointments in 30 days using Meta Ads + AI Callers. Guaranteed or we work for free." />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#0d1117;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    .container{max-width:1080px;margin:0 auto;padding:0 24px}
+    a{text-decoration:none}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,17,23,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:-0.5px}
+    .logo span{color:#00d4ff}
+    .btn-nav{border:1px solid rgba(255,255,255,0.2);color:#fff;background:transparent;padding:9px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s}
+    .btn-nav:hover{border-color:#00d4ff;color:#00d4ff}
+
+    /* HERO */
+    .hero{padding:150px 0 90px;text-align:center;background-image:linear-gradient(rgba(0,212,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.05) 1px,transparent 1px);background-size:60px 60px}
+    .hero-inner{max-width:860px;margin:0 auto}
+    .badge{display:inline-block;border:1px solid rgba(0,212,255,0.35);background:rgba(0,212,255,0.08);color:#00d4ff;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:28px}
+    .hero h1{font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(44px,7vw,78px);line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:24px}
+    .hero h1 span{color:#00d4ff}
+    .hero-sub{font-size:18px;color:#ccd6e0;max-width:600px;margin:0 auto 40px;line-height:1.7}
+    .btn-primary{display:inline-block;background:#00d4ff;color:#000;font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;padding:16px 36px;border-radius:6px;cursor:pointer;transition:opacity 0.2s}
+    .btn-primary:hover{opacity:0.85}
+    .btn-large{font-size:18px;padding:18px 44px}
+    .hero-note{color:#8a95a8;font-size:13px;margin-top:14px}
+    .niches{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:52px}
+    .niches span{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);color:#a8b4c0;font-size:12px;font-weight:500;padding:5px 14px;border-radius:100px}
+
+    /* SECTIONS */
+    section{padding:90px 0;border-top:1px solid rgba(255,255,255,0.07)}
+    .label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#00d4ff;margin-bottom:10px}
+    .label-muted{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#6b7585;margin-bottom:10px}
+    h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4vw,48px);letter-spacing:-1px;color:#fff;margin-bottom:48px;line-height:1.1}
+
+    /* PROBLEM */
+    .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .problem-card{background:#161b24;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:24px;display:flex;gap:14px;align-items:flex-start}
+    .problem-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(255,60,60,0.1);border:1px solid rgba(255,60,60,0.2);color:#ff4444;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+    .problem-card p{color:#ccd6e0;font-size:15px;line-height:1.55;font-weight:500}
+
+    /* HOW IT WORKS */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0}
+    .step{border-left:2px solid rgba(0,212,255,0.2);padding:8px 24px 8px 32px}
+    .step-num{font-family:'Syne',sans-serif;font-weight:900;font-size:52px;color:#00d4ff;opacity:0.2;line-height:1;margin-bottom:16px;letter-spacing:-2px}
+    .step h3{font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:10px}
+    .step p{color:#9aaab8;font-size:15px;line-height:1.65}
+
+    /* DELIVERABLES */
+    .del-section{background:#161b24}
+    .del-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden}
+    .del-item{background:#161b24;padding:28px 24px;display:flex;gap:16px;align-items:flex-start;transition:background 0.2s}
+    .del-item:hover{background:#1e2530}
+    .del-icon{color:#00d4ff;font-size:20px;flex-shrink:0;margin-top:2px}
+    .del-item h4{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:4px}
+    .del-item p{color:#8a95a8;font-size:13px;line-height:1.6}
+
+    /* GUARANTEE */
+    .guarantee-box{max-width:700px;margin:0 auto;text-align:center;padding:64px 48px;background:#161b24;border:1px solid rgba(0,212,255,0.22);border-radius:16px}
+    .g-badge{display:inline-block;border:1px solid rgba(0,212,255,0.3);background:rgba(0,212,255,0.06);color:#00d4ff;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px}
+    .guarantee-box h2{font-size:clamp(28px,4vw,42px);margin-bottom:20px}
+    .guarantee-box h2 span{color:#00d4ff}
+    .guarantee-box p{color:#9aaab8;font-size:16px;line-height:1.7;margin-bottom:36px}
+
+    /* FAQ */
+    .faq-list{max-width:720px}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.07)}
+    .faq-q{width:100%;background:none;border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color 0.2s}
+    .faq-q:hover{color:#00d4ff}
+    .faq-icon{font-size:22px;color:#6b7585;flex-shrink:0;transition:transform 0.25s,color 0.2s;line-height:1}
+    .faq-item.open .faq-icon{transform:rotate(45deg);color:#00d4ff}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+    .faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+    .faq-a p{color:#b0bac8;font-size:15px;line-height:1.7}
+
+    /* BOOK */
+    .book-inner{text-align:center;max-width:580px;margin:0 auto}
+    .book-sub{color:#9aaab8;font-size:17px;margin-bottom:40px;line-height:1.7}
+    .book-note{margin-top:16px;font-size:13px;color:#6b7585}
+
+    /* FOOTER */
+    .footer{border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer p{font-size:13px;color:#4a5260}
+
+    /* RESPONSIVE */
+    @media(max-width:640px){
+      .hero{padding:120px 0 70px}
+      .hero h1{letter-spacing:-1.5px}
+      .guarantee-box{padding:40px 24px}
+      .step{padding:20px 0 20px 20px}
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">ServiceLeads<span>.AI</span></a>
+      <a href="https://calendly.com/leadservice-ai/30min" target="_blank" class="btn-nav">Book a Free Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none">
+    <div class="container hero-inner">
+      <div class="badge">Meta Ads + AI Caller System</div>
+      <h1>10 Booked Jobs in <span>30 Days</span><br/>or We Work for Free.</h1>
+      <p class="hero-sub">We install a done-for-you lead machine for local service businesses. Meta Ads bring the leads. Our AI caller books them instantly — before your competition even picks up.</p>
+      <a href="https://calendly.com/leadservice-ai/30min" target="_blank" class="btn-primary">Get Your Free Strategy Call →</a>
+      <p class="hero-note">No contracts. No fluff. Just booked jobs.</p>
+      <div class="niches">
+        <span>Powerwashing</span><span>Landscaping</span><span>Roofing</span>
+        <span>HVAC</span><span>Window Cleaning</span><span>Plumbing</span>
+        <span>Electrical</span><span>House Cleaning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="container">
+      <p class="label-muted">Sound familiar?</p>
+      <div class="problem-grid">
+        <div class="problem-card"><div class="problem-icon">✕</div><p>Not enough consistent jobs every month</p></div>
+        <div class="problem-card"><div class="problem-icon">✕</div><p>Leads come in but nobody calls them fast enough to book</p></div>
+        <div class="problem-card"><div class="problem-icon">✕</div><p>You're doing everything yourself — no system, no team</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <p class="label">How it works</p>
+      <h2>Three Steps to a Full Calendar</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>We Launch Your Meta Ads</h3>
+          <p>Proven ad creatives targeting homeowners in your area. We handle the setup, copy, targeting, and creative — you just approve it.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>AI Calls Every Lead Instantly</h3>
+          <p>The second a lead fills out your form, our AI caller dials them within seconds — qualifies them and books the appointment directly on your calendar.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Jobs Show Up on Your Calendar</h3>
+          <p>Automated reminders reduce no-shows. You show up to confirmed jobs. We send you a weekly report so you always know what's working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="del-section">
+    <div class="container">
+      <p class="label-muted">The full system</p>
+      <h2>Everything Done for You</h2>
+      <div class="del-grid">
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>Meta Ads Setup & Management</h4><p>Campaign build, daily optimization, split-testing creatives</p></div></div>
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>AI Caller (Instant Outbound)</h4><p>Calls every lead within seconds of submission, 24/7</p></div></div>
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>Lead Forms & Funnel</h4><p>High-converting lead capture built for your niche</p></div></div>
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>Booking Automation</h4><p>Direct calendar integration so jobs book themselves</p></div></div>
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>SMS Follow-Up & Reminders</h4><p>Automated sequences that cut no-shows dramatically</p></div></div>
+        <div class="del-item"><div class="del-icon">◈</div><div><h4>Weekly Reporting</h4><p>Leads, calls, appointments, cost per booking — every week</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section>
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="g-badge">Our Guarantee</div>
+        <h2>10 Booked Appointments in 30 Days —<br/><span>or We Work for Free.</span></h2>
+        <p>We're so confident in this system that if we don't hit 10 booked appointments in your first 30 days, we keep running your entire campaign at no charge until we do. Zero risk on your end.</p>
+        <a href="https://calendly.com/leadservice-ai/30min" target="_blank" class="btn-primary">Claim Your Guarantee →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <p class="label-muted">Common questions</p>
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How fast will I start getting leads?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Most clients see their first leads within 48–72 hours of launch. Once you're onboarded and we have your assets, we can typically go live within 7 days.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I need to hire anyone or manage anything?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>No. This is a fully done-for-you system. You don't manage ads, call leads, or set up any tech. You just show up to the jobs that get booked on your calendar.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What does it cost?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Our management fee starts at $800/month for ads-only or $1,500/month for the full system including AI caller, automations, and booking. Ad spend is separate — minimum $800/month recommended.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What if the AI caller doesn't sound natural?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Our AI callers are built on cutting-edge voice AI and scripted specifically for your business. They introduce themselves as your scheduling assistant — professional, natural, and fast. You'll hear a demo before we go live.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What service businesses do you work with?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>We work with local service businesses: powerwashing, landscaping, roofing, HVAC, window cleaning, house cleaning, plumbing, electrical, and similar trades.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A CALL -->
+  <section>
+    <div class="container">
+      <div class="book-inner">
+        <p class="label">Ready to scale?</p>
+        <h2>Let's Build Your Lead Machine</h2>
+        <p class="book-sub">Book a free 20-minute strategy call. We'll look at your business, show you exactly what the system would look like for your niche, and tell you honestly if we're a fit.</p>
+        <a href="https://calendly.com/leadservice-ai/30min" target="_blank" class="btn-primary btn-large">Book Your Free Call →</a>
+        <p class="book-note">No pressure. No pitch deck. Just a real conversation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">ServiceLeads<span style="color:#00d4ff">.AI</span></span>
+      <p>© 2025 ServiceLeads.AI — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.step, .del-item, .problem-card').forEach(el => {
+      el.style.opacity='0'; el.style.transform='translateY(20px)';
+      el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
 
